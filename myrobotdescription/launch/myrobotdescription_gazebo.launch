@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<launch>
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find myrobotdescription)/worlds/project2.world"/> 
+		<arg name="paused" value="false"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="gui" value="true"/>
+		<arg name="recording" value="false"/>
+		<arg name="debug" value="false"/>
+	</include>
+
+	<!-- Load the URDF into the parameter server -->
+	<param name="robot_description" textfile='$(find myrobotdescription)/urdf/my_robot_description.urdf' />
+
+	<!-- Spin up the node that will spawn the robot model is defined in the URDF -->
+	<node 
+		name="spawn_urdf" 
+		pkg="gazebo_ros" 
+		type="spawn_model" 
+		args="-param robot_description -urdf -model my_robot_description" 
+	/> 
+
+	  <!-- Robot state publisher -->
+	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+		<param name="publish_frequency" type="double" value="50.0" />
+		<param name="tf_prefix" type="string" value="" />
+	</node>
+
+	<!-- joint_state_controller -->
+	<rosparam file="$(find myrobotdescription)/controller/joint_state_controller.yaml" command="load"/>
+	<node 
+		name="joint_state_controller_spawner" 
+		pkg="controller_manager" 
+		type="controller_manager" 
+		args="spawn 
+		joint_state_controller" 
+		respawn="false" 
+		output="screen"
+	/>
+
+	<!-- Load controller file to parameter server -->
+	<rosparam file="$(find myrobotdescription)/controller/water_controller.yaml" command="load"/>
+
+	<!-- Spin up the controller node -->
+	<node 
+		name="water_controller_spawner" 
+		pkg="controller_manager" 
+		type="controller_manager" 
+		args="spawn water_controller" respawn="false" output="screen"
+	/>
+
+	<rosparam file="$(find myrobotdescription)/controller/sensor_controller.yaml" command="load"/>
+
+	<!-- Spin up the controller node -->
+	<node 
+		name="sensor_controller_spawner" 
+		pkg="controller_manager" 
+		type="controller_manager" 
+		args="spawn sensor_controller" respawn="false" output="screen"
+	/>
+
+</launch>

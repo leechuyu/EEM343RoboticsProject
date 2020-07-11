@@ -1,0 +1,20 @@
+controller_list:
+  - name: fake_water_arm_controller
+    joints:
+      - water_joint1
+      - water_joint2
+      - water_joint3
+  - name: fake_water_hand_controller
+    joints:
+      - water_joint1
+      - water_joint2
+      - water_joint3
+  - name: fake_testjoint_controller
+    joints:
+      - water_joint1
+  - name: fake_sensor_arm_controller
+    joints:
+      - sensor_joint1
+      - sensor_joint2
+      - sensor_joint3
+      - sensor_joint4

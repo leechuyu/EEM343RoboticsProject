@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="my_robot_description">
+    <link name="base_link">
+        
+<inertial>
+            <origin xyz="-0.09397 0.12468 0.87362" rpy="0 0 0" />
+            <mass value="100" />
+            <inertia ixx="3125.5" ixy="3.318" ixz="14.516" iyy="15317" iyz="1.659" izz="12316" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.65098 0.61961 0.58824 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="basejoint">
+        
+<inertial>
+            <origin xyz="2.2204E-16 0.0039128 0.031" rpy="0 0 0" />
+            <mass value="0.24" />
+            <inertia ixx="0.29042" ixy="-1.6057E-18" ixz="4.3753E-17" iyy="0.3419" iyz="-3.176E-18" izz="0.24304" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/basejoint.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/basejoint.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="base_joint" type="fixed">
+        <origin xyz="-0.967212862778998 -1.1 0.354355515120088" rpy="1.5707963267949 0 1.5707963267949" />
+        <parent link="base_link" />
+        <child link="basejoint" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <link name="sensor_link1">
+        
+<inertial>
+            <origin xyz="-0.002203 0.50053 -0.027" rpy="0 0 0" />
+            <mass value="0.8" />
+            <inertia ixx="5.3585" ixy="-4.6185E-14" ixz="1.986E-16" iyy="1.047" iyz="1.0787E-16" izz="5.1967" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/sensor_link1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/sensor_link1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="sensor_joint1" type="revolute">
+        <origin xyz="0 0 0" rpy="3.1416 0 3.0004" />
+        <parent link="basejoint" />
+        <child link="sensor_link1" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="-1.047" effort="30" velocity="0.5" />
+    </joint>
+    <link name="sensor_link2">
+        
+<inertial>
+            <origin xyz="-4.885E-15 0.53421 -0.031" rpy="0 0 0" />
+            <mass value="1.11" />
+            <inertia ixx="17.869" ixy="6.3068E-14" ixz="-1.356E-16" iyy="1.2499" iyz="-5.0775E-15" izz="17.434" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/sensor_link2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/sensor_link2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="sensor_joint2" type="revolute">
+        <origin xyz="-0.002203 1.0553 0" rpy="0 0 -1.6699" />
+        <parent link="sensor_link1" />
+        <child link="sensor_link2" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="1.5707" effort="30" velocity="0.5" />
+    </joint>
+    <link name="sensor_link3">
+        
+<inertial>
+            <origin xyz="-2.6645E-15 0.13593 0.035" rpy="0 0 0" />
+            <mass value="0.31" />
+            <inertia ixx="0.81574" ixy="8.0075E-15" ixz="1.0963E-17" iyy="0.32816" iyz="1.6717E-16" izz="0.64836" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/sensor_link3.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/sensor_link3.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="sensor_joint3" type="revolute">
+        <origin xyz="0 1.3425 0" rpy="3.1416 0 2.1716" />
+        <parent link="sensor_link2" />
+        <child link="sensor_link3" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="-1.5707" effort="30" velocity="0.5" />
+    </joint>
+    <link name="sensor_endeffector">
+        
+<inertial>
+            <origin xyz="1.1102E-16 2.2204E-15 0.12937" rpy="0 0 0" />
+            <mass value="0.075" />
+            <inertia ixx="0.093111" ixy="-1.5517E-17" ixz="-3.4524E-17" iyy="0.12846" iyz="-8.3267E-16" izz="0.066845" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/sensor_endeffector.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/sensor_endeffector.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="sensor_joint4" type="prismatic">
+        <origin xyz="0 0.31663 0.035" rpy="1.5708 -1.5708 3.142" />
+        <parent link="sensor_link3" />
+        <child link="sensor_endeffector" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="0.10" effort="30" velocity="0.5" />
+    </joint>
+    <link name="water_link1">
+        
+<inertial>
+            <origin xyz="-0.024863 0 0.52717" rpy="0 0 0" />
+            <mass value="1.35" />
+            <inertia ixx="12.636" ixy="8.8818E-16" ixz="1.0884" iyy="13.668" iyz="-1.5266E-15" izz="3.0619" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/water_link1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/water_link1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="water_joint1" type="revolute">
+        <origin xyz="0.78379 -1.3125 0.2" rpy="0 0 1.774" />
+        <parent link="base_link" />
+        <child link="water_link1" />
+        <axis xyz="0 0 1" />
+        <limit lower="-0.5236" upper="0.5236" effort="30" velocity="0.5" />
+    </joint>
+    <link name="water_link2">
+        
+<inertial>
+            <origin xyz="0.3417 0.00056965 0.004" rpy="0 0 0" />
+            <mass value="0.285" />
+            <inertia ixx="0.17789" ixy="-0.0027543" ixz="-2.5639E-15" iyy="1.739" iyz="-3.5041E-16" izz="1.6161" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/water_link2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/water_link2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="water_joint2" type="revolute">
+        <origin xyz="-0.5375 0 0.85" rpy="1.5708 0.078326 -3.1416" />
+        <parent link="water_link1" />
+        <child link="water_link2" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="-1.5707" effort="30" velocity="0.5" />
+    </joint>
+    <link name="water_link3">
+        
+<inertial>
+            <origin xyz="-0.008 -7.7716E-16 -0.18407" rpy="0 0 0" />
+            <mass value="0.159" />
+            <inertia ixx="0.38015" ixy="-8.3093E-16" ixz="-5.4453E-15" iyy="0.45022" iyz="-7.5287E-16" izz="0.093702" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/water_link3.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/water_link3.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="water_joint3" type="revolute">
+        <origin xyz="0.81494 0.0013327 0" rpy="2.636 1.5708 0" />
+        <parent link="water_link2" />
+        <child link="water_link3" />
+        <axis xyz="1 0 0" />
+        <limit lower="0" upper="1.5707" effort="30" velocity="0.5" />
+    </joint>
+    
+<transmission name="trans_sensor_joint1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="sensor_joint1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="sensor_joint1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_sensor_joint2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="sensor_joint2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="sensor_joint2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_sensor_joint3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="sensor_joint3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="sensor_joint3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_sensor_joint4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="sensor_joint4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="sensor_joint4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_water_joint1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="water_joint1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="water_joint1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_water_joint2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="water_joint2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="water_joint2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_water_joint3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="water_joint3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="water_joint3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

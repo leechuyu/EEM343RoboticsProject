@@ -1,0 +1,8 @@
+my_robot_description:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  water_joint3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: water_joint3
+    pid: {p: 100.0, i: 0.01, d: 10.0}

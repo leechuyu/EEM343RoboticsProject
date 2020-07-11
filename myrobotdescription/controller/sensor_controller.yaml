@@ -1,0 +1,9 @@
+sensor_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - sensor_joint1
+     - sensor_joint2
+     - sensor_joint3
+     - sensor_joint4
+  state_publish_rate:  25
+  action_monitor_rate: 10

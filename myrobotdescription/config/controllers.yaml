@@ -1,0 +1,17 @@
+controller_list:
+  - name: water_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory 
+    joints: 
+      - water_joint1
+      - water_joint2
+      - water_joint3
+  - name: sensor_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory 
+    joints: 
+      - sensor_joint1
+      - sensor_joint2
+      - sensor_joint3
+      - sensor_joint4
+

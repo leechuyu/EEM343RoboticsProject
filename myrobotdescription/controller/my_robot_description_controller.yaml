@@ -1,8 +1,0 @@
-water_controller:
-  type: position_controllers/JointTrajectoryController
-  joints:
-     - water_joint1
-     - water_joint2
-     - water_joint3
-  state_publish_rate:  25
-  action_monitor_rate: 10
